@@ -1,0 +1,78 @@
+<?= $this->extend('msoview/mso-navbar') ?>
+<?= $this->section('content') ?>
+
+<div class="card-setsched card px-5">
+
+  <div class="row header-manage mx-4">
+      <h1 class="manage-header"><i class="fa fa-calendar px-2"></i>Set Schedule</h1>
+  </div>
+
+  <div class="row row-sched px-5">
+    <div class="row mt-3">
+      <h4 class="name-mso"><?= $firstname.' '.$lastname?></h4>
+    </div>
+  </div>
+
+  <div class="row px-5">
+    <form>
+      <div class="col-md-12">
+          <div class="mt-2">
+            <div class="col-md-3 px-0">
+            <label for="labelUser" name="datetime[]" class="">Schedule date and time</label>
+            <input type="datetime-local" class="form-customize form-control" required>
+            </div>
+         
+          <div class="col-md-2">
+              <label class="labelUser">Added Animal:</label>
+              <input type="text" value="0" class="form-customize form-control px-0" id="no" readonly>
+          </div>
+          </div>
+          
+          <div id="row-cloned">
+          <div class="row-of-form row mt-3" id="row-of-form">
+            <div class="col-md-2">
+            <label class="labelUser">Animal Type:</label>
+              <select name="animaltype[]" id="animaltype" class="animaltype form-customize form-control">
+                <option value="Pig" class="option-user">Pig</option>
+                <option value="Cow" class="option-user">Cow</option>
+                <option value="Carabao" class="option-user">Carabao</option>
+                <option value="Horse" class="option-user">Horse</option>
+              </select>
+            </div>
+
+            <div class="col-md-1">
+              <label class="labelUser">Quantity:</label>
+              <input type="text" name="quantity[]"value="1" id='quantity' class="quantity form-customize form-control" readonly>
+            </div>
+
+            <div class="col-md-3">
+              <label class="labelUser">Weight:</label>
+              <input type="number" name="weight[]" id='weight' class="weight form-customize form-control" required>
+            </div>
+
+            <div class="col-md-3">
+              <label class="labelUser">Origin:</label>
+              <input type="text" id='origin' name="origin[]" class="origin form-customize form-control" required>
+            </div>
+
+            <div class="col-md-2">
+              <div class="mt-4">
+                <button type="button" class="remove btn btn-danger btn-sm mt-3" style="display:none;"><i class="fa fa-trash px-1"></i>Remove</button>
+              </div>
+            </div>
+
+          </div>
+         </div>
+    
+      <div class="row mt-3">
+        <div class="d-flex">
+          <button class="btn btn-primary btn-sm" type="button" id="add-animal"><i class="fa fa-plus px-1"></i>Add Animal</button>
+          <button class="btn btn-success btn-sm mx-2"><i class="fa fa-calendar px-1"></i>Set Schedule</button>
+        </div>
+      </div> 
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<?= $this->endSection() ?>

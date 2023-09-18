@@ -1,0 +1,99 @@
+CREATE TABLE DAStaff(
+DAStaff_id int(30) PRIMARY KEY AUTO_INCREMENT,
+DAStaff_firstname varchar(30),
+DAStaff_lastname varchar(30),
+DAStaff_username varchar(30),
+DAStaff_password varchar(200)
+)ENGINE=InnoDB DEFAULT
+CHARSET=latin1 AUTO_INCREMENT=1;
+
+CREATE TABLE MSO(
+MSO_id int(200) PRIMARY KEY AUTO_INCREMENT,
+DAStaff_id int(30),
+firstname varchar(30),
+lastname varchar(30),
+username varchar(40),
+password varchar(200),
+contact varchar(20),
+address varchar(100),
+status int(2),
+registereddate TimesTamp Default Current_Timestamp(),
+Foreign Key (DAStaff_id) references DAStaff(DAStaff_id)
+)ENGINE=InnoDB DEFAULT
+CHARSET=latin1 AUTO_INCREMENT=1;
+
+CREATE TABLE Inspector(
+Inspector_id int(30) PRIMARY KEY AUTO_INCREMENT,
+DAStaff_id int(30),
+firstname varchar(30),
+lastname varchar(30),
+username varchar(40),
+password varchar(200),
+contact varchar(20),
+address varchar(50),
+status int(2),
+Foreign Key (DAStaff_id) references DAStaff(DAStaff_id)
+)ENGINE=InnoDB DEFAULT
+CHARSET=latin1 AUTO_INCREMENT=1;
+
+
+CREATE TABLE Treasurer(
+Treasurer_id int(30) PRIMARY KEY AUTO_INCREMENT,
+DAStaff_id int(30),
+firstname varchar(30),
+lastname varchar(30),
+username varchar(40),
+password varchar(200),
+contact varchar(20),
+address varchar(50),
+status int(2),
+Foreign Key (DAStaff_id) references DAStaff(DAStaff_id)
+)ENGINE=InnoDB DEFAULT
+CHARSET=latin1 AUTO_INCREMENT=1;
+
+
+CREATE TABLE Schedule(
+schedule_id int(200) PRIMARY KEY AUTO_INCREMENT,
+index_id int(200),
+MSO_id int(30),
+Animal_type varchar(30),
+Animal_quantity varchar(60),
+Animal_weight varchar(60),
+Animal_origin varchar(60),
+schedule_status int(2),
+schedule_datetime datetime,
+Foreign Key (MSO_id) references MSO(MSO_id)
+)ENGINE=InnoDB DEFAULT
+CHARSET=latin1 AUTO_INCREMENT=1;
+
+CREATE TABLE InspectStatus(
+inspectstatus_id int(250) PRIMARY KEY AUTO_INCREMENT,
+Schedule_id int(30),
+Inspector_id int(30),
+inspect_status varchar(30),
+inspect_reason varchar(100),
+inspect_datetime datetime,
+Foreign Key (schedule_id) references Schedule(schedule_id),
+Foreign Key (Inspector_id) references Inspector(Inspector_id)
+)ENGINE=InnoDB DEFAULT
+CHARSET=latin1 AUTO_INCREMENT=1;
+
+CREATE TABLE PaymentStatus(
+payment_id int(200) PRIMARY KEY AUTO_INCREMENT,
+inspectstatus_id int(30),
+Treasurer_id int(30),
+payment_status varchar(30),
+payment_price float,
+payment_datetime Datetime,
+Foreign Key (inspectstatus_id) references InspectStatus(inspectstatus_id),
+Foreign Key (Treasurer_id) references Treasurer(Treasurer_id)
+)ENGINE=InnoDB DEFAULT
+CHARSET=latin1 AUTO_INCREMENT=1;
+
+
+
+
+
+                <!-- <a href="<?php echo site_url(); ?>/InspectorUpdateSchedule/<?= $result->index_id ?>/<?= $result->MSO_id ?>"><button class="btn-viewdetails-mso btn-sm-schedule btn btn-primary btn-sm"><i class="view-user fa fa-info-circle" style="margin-right:4px;"></i>View Details</button></a> -->
+
+

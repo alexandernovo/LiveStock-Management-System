@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Livestock Management System</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"
+    />
+    <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/42d5adcbca.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+    <link
+      id="pagestyle"
+      href="/assets/css/material-dashboard.css?v=3.0.4"
+      rel="stylesheet"
+    />
+   
+    <script type="text/javascript" src="/assets/bootstrap/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/assets/bootstrap/js/sweetalert2.all.min.js"></script>
+    <link href="/assets/css/customcss.css" rel="stylesheet" />
+    <style>
+            .my-swal {
+            z-index: X;
+            }
+            .swal2-container {
+  position: fixed;
+  z-index: 300000;}
+  
+        </style>
+  </head>
+
+  <body class="g-sidenav-show bg-gray-200">
+    <aside
+      class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
+      id="sidenav-main"
+    >
+      <div class="sidenav-header">
+        <i
+          class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+          aria-hidden="true"
+          id="iconSidenav"
+        ></i>
+        <a class="navbar-brand m-0" href=" #" target="_blank">
+          <img
+            src="https://w7.pngwing.com/pngs/788/424/png-transparent-computer-icons-computer-servers-administrator-miscellaneous-logo-black-thumbnail.png"
+            class="navbar-brand-img h-100 rounded-circle"
+            alt="main_logo"
+          />
+          <span class="ms-1 font-weight-bold text-white">ADMIN</span>
+        </a>
+      </div>
+
+      <hr class="horizontal light mt-0 mb-2" />
+      <div class="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              <div
+                class="text-white text-center me-2 d-flex align-items-center justify-content-center"
+              >
+                <i class="material-icons opacity-10">person</i>
+              </div>
+              <span class="nav-link-text ms-1">Admin</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-white active bg-gradient-primary" href="<?php echo base_url();?>/AdminController/index">
+              <div
+                class="text-white text-center me-2 d-flex align-items-center justify-content-center"
+              >
+                <i class="material-icons opacity-10">home</i>
+              </div>
+              <span class="nav-link-text ms-1">Home</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+
+            <a class="nav-link text-white" href="<?php echo base_url();?>/AdminController/registeruser">
+              <div
+                class="text-white text-center me-2 d-flex align-items-center justify-content-center"
+              >
+                <i class="material-icons opacity-10">person</i>
+              </div>
+              <span class="nav-link-text ms-1">Manage User</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              <div
+                class="text-white text-center me-2 d-flex align-items-center justify-content-center"
+              >
+                <i class="material-icons opacity-10">receipt_long</i>
+              </div>
+              <span class="nav-link-text ms-1">View Transaction</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">
+              <div
+                class="text-white text-center me-2 d-flex align-items-center justify-content-center"
+              >
+                <i class="material-icons opacity-10">view_in_ar</i>
+              </div>
+              <span class="nav-link-text ms-1">Generate Report</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidenav-footer position-absolute w-100 bottom-0">
+        <div class="mx-3">
+          <a class="logout btn bg-gradient-primary mt-4 w-100" href="<?php echo base_url();?>/LoginController/logout" type="button"
+            >Logout</a
+          >
+        </div>
+      </div>
+    </aside>
+
+    <main
+      class="main-content position-relative max-height-vh-100 h-100 border-radius-lg"
+    >
+      <nav
+        class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl"
+        id="navbarBlur"
+        data-scroll="true"
+      >
+        <div
+          class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4"
+          id="navbar"
+        >
+          <ul class="navbar-nav justify-content-end">
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+              <a
+                href="javascript:;"
+                class="nav-link text-body p-0"
+                id="iconNavbarSidenav"
+              >
+                <div class="sidenav-toggler-inner">
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                  <i class="sidenav-toggler-line"></i>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card-custom card">
+                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                    <h6 class="text-white text-capitalize ps-3">Authors table</h6>
+                </div>
+                <div class="card-body px-0 pb-2">
+              <div class="row">
+                <h4>Update User</h4>
+              </div>
+            <form method="post">
+              <div class="row mx-5 mt-5">
+             <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="" class="LabelUser">Firstname</label>
+                  <input type="text" placeholder="Firstname" value="<?= $mso['MSO_firstname']?>" class="form-customize form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="" class="LabelUser">Lastname</label>
+                  <input type="text" placeholder="Lastname" value="<?= $mso['MSO_lastname']?>" class="form-customize form-control">
+                </div>
+              </div>
+             </div>
+             <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="" class="LabelUser">Address</label>
+                  <input type="text" placeholder="Address" value="<?= $mso['MSO_address']?>" class="form-customize form-control">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="" class="LabelUser">Contact Number</label>
+                  <input type="text" placeholder="Contact Number" value="<?= $mso['MSO_contact']?>"class="form-customize form-control">
+                </div>
+              </div>
+             </div>
+
+             <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="" class="LabelUser">Username</label>
+                  <input type="text" placeholder="Username" value="<?= $mso['MSO_username']?>" class="form-customize form-control">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="" class="LabelUser">Password</label>
+                  <input type="password" placeholder="Password" class="form-customize form-control">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="" class="LabelUser">Confirm Password</label>
+                  <input type="password" placeholder="Confirm Password" class="form-customize form-control">
+                </div>
+              </div>
+             </div>
+             <div class="row mt-5"></div>
+             <div class="row mt-5"></div>
+             <div class="row mt-5"></div>
+             <div class="row mt-5"></div>
+             <div class="row mt-3"></div>
+       
+         
+             <div class="row mt-5 d-flex justify-content-end">
+           
+                <div class="col-md-2 mx-3">
+                  <button type="submit" name="update-cancel"class="btn btn-danger btn-sm px-5 mx-3">Cancel</button>
+                </div>
+                <div class="col-md-2">
+                <button type="submit" name="update-mso"class="btn btn-primary btn-sm px-5">Update</button>
+                </div>
+        
+              </div>
+            </div>
+        </div>
+            </form>
+        </div>
+      </div>
+              <p class="copyright">© Copyright 2022 Department of Agriculture</p>
+            </div>
+        </div>
+       
+    </main>
+
+    <script src="/assets/js/core/popper.min.js"></script>
+    <script src="/assets/js/core/bootstrap.min.js"></script>
+    <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script>
+      var win = navigator.platform.indexOf("Win") > -1;
+      if (win && document.querySelector("#sidenav-scrollbar")) {
+        var options = {
+          damping: "0.5",
+        };
+        Scrollbar.init(document.querySelector("#sidenav-scrollbar"), options);
+      }
+    </script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="../assets/js/material-dashboard.min.js?v=3.0.4"></script>
+
+    </script>
+    <?php if(session()->getFlashdata('msg')):?>
+        <script>
+            swal.fire({
+            title: "Welcome <?php echo $AdminName;?>",
+            text: "<?= session()->getFlashdata('msg') ?>",
+            icon: "success",
+            });
+        </script>  
+    <?php endif;?>
+    <script>
+          $('.logout').on('click',function(e){
+            e.preventDefault();
+            const href=$(this).attr('href')
+
+            Swal.fire({
+              type: 'warning',
+              icon: 'warning',
+              title: 'Are You Sure?',
+              text: 'You will be logout',
+              showCancelButton: true,
+              confirmButtonColor:'#d33',
+              cancelButtonColor:'#3085d6',
+              confirmButtonText: 'Logout',
+              customClass: {
+              actions: 'my-actions',
+              cancelButton: 'order-1 right-gap',
+              confirmButton: 'order-2',
+              container: 'my-swal'
+            }
+            }).then((result)=>{
+              if(result.value){
+                document.location.href=href;
+              }
+            })
+          })
+        </script>
+  </body>
+</html>
